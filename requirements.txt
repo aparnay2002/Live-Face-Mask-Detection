@@ -2,7 +2,11 @@
 # $ conda create --name <env> --file <this file>
 # platform: win-64
 
+<<<<<<< HEAD
 _tflow_select==2.2.0=eigen
+=======
+# _tflow_select==2.2.0=eigen
+>>>>>>> 2b5738e773600e5a0eabf7e75312c6a701718501
 absl-py==0.9.0=py37_0
 alabaster==0.7.12=py37_0
 argh==0.26.2=py37_0
