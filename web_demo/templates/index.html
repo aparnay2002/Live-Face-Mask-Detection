@@ -1,42 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Live Face Mask Detection App</title>
 	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
-<style>
 
-</style>
 <body >
 	<div class="container p-0" >
 		<header >
 	      <nav class="navbar navbar-dark bg-dark rounded">
 	        <a class="navbar-brand">
 	        	<i class="fas fa-camera"></i>
-	        	<strong>Masks Detection</strong>
+	        	<strong>Mask Detection</strong>
 	        </a>
 	      </nav>
 	    </header>
 	</div>
 	
 
-	<div class="container ">
-		<div class="row bg-light" style="height:480px">
+	<div class="container myimg">
+		<div class="row" style="height:480px">
 			<video id="video" playsinline class="border " style="margin:auto;display:inline-block;"></video>
 			<canvas id="output" class="canvas-output" style="margin:auto;position:relative;top:-480px;left:10px"></canvas>
-			<div class="float-right">
+			<!-- <div class="float-right">
 	    		<a href="https://www.youtube.com/user/chirpieful">
 	    			<img src="../static/img/yicong.jpg" class="rounded" style="height:30px;width:30px;position:relative;top:-30px;">
 	    		</a>
-	    	</div>
+	    	</div> -->
 		</div> 
     </div>
 </body>
+
+<style>
+	.myimg{
+		background-color:cyan;
+		margin: 30px;
+		border: 3px solid red;
+		border-radius: 20px;
+	}
+</style>
 <script>
-	//Coded by oh yicong, visit my youtube channel for more programming tutorials :)
+	
 	var model, mask_model, ctx, videoWidth, videoHeight, canvas;
 	const video = document.getElementById('video');
 	const state = {

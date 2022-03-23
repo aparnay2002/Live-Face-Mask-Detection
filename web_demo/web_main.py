@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Sun Mar  8 08:49:23 2020
 
-@author: OHyic
-"""
 
 #import flasks libraries
 from flask import Flask, render_template, request, jsonify, url_for, redirect, flash, Response, send_file
