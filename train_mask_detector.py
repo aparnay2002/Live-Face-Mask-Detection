@@ -34,7 +34,7 @@ plot_path=os.getcwd()+"//plot"
 # initialize the initial learning rate, number of epochs to train for,
 # and batch size
 INIT_LR = 1e-4
-EPOCHS = 2
+EPOCHS = 1
 BS = 32
 
 # grab the list of images in our dataset directory, then initialize
@@ -160,4 +160,41 @@ with open('my_model.json', 'w') as json_file:
 #saving the weights of the model
 model.save_weights('temp_model.h5')
 #Model loss and accuracy
-loss,acc = model.evaluate(test_images,  test_labels, verbose=2)
+# loss,acc = model.evaluate(test_images,  test_labels, verbose=2)
+
+
+
+
+# Code for converting to tf-lite model.
+def get_file_size(file_path):
+    size = os.path.getsize(file_path)
+    return size
+
+def convert_bytes(size, unit=None):
+    if unit == "KB":
+        return print('File size: ' + str(round(size / 1024, 3)) + ' Kilobytes')
+    elif unit == "MB":
+        return print('File size: ' + str(round(size / (1024 * 1024), 3)) + ' Megabytes')
+    else:
+        return print('File size: ' + str(size) + ' bytes')
+
+
+import tensorflow as tf
+keras_model_name = "tf_model.h5"
+export_dir = 'saved_model'
+tf.saved_model.save(model, export_dir)
+model.save(keras_model_name)
+convert_bytes(get_file_size(keras_model_name), "MB")
+
+tf_lite_model_name = "tf_lite_model.tflite"
+
+tf_lite_converter = tf.lite.TFLiteConverter.from_keras_model(model)
+tf_lite_converter.optimizations = [tf.lite.Optimize.OPTIMIZE_FOR_SIZE]
+# tf_lite_converter.optimizations = [tf.lite.Optimize.DEFAULT]
+# tf_lite_converter.target_spec.supported_types = [tf.float16]
+tflite_model = tf_lite_converter.convert()
+
+tflite_model_name = tf_lite_model_name
+open(tflite_model_name, "wb").write(tflite_model)
+
+convert_bytes(get_file_size(tf_lite_model_name), "MB")
