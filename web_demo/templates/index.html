@@ -9,37 +9,67 @@
 </head>
 
 <body >
-	<div class="container p-0" >
+	<div class="body" >
 		<header >
 	      <nav class="navbar navbar-dark bg-dark rounded">
 	        <a class="navbar-brand">
-	        	<i class="fas fa-camera"></i>
-	        	<strong>Mask Detection</strong>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFx5ecZtItPBpghd_V1bzelrhLuFx2xgAW1g&usqp=CAU" alt="">
+	        	<strong>Face Mask Detection App</strong>
 	        </a>
 	      </nav>
 	    </header>
+
+		<div class="myimg">
+			<div class="row ">
+				<div class="col-6">
+					<video id="video" playsinline class="border " style="margin:auto;display:inline-block;"></video>
+					<canvas id="output" class="canvas-output" style="margin:auto;position:relative;top:-480px;left:10px">
+					</canvas>
+				</div>
+				<div class="col-6">
+					<h1>
+						Real time face mask detector  
+					</h1>
+					<p>
+						TEST THE MASK DETECTOR HERE
+						
+					</p>
+				</div>
+			</div>
+			
+			
+
+		</div> 
 	</div>
 	
 
-	<div class="container myimg">
-		<div class="row" style="height:480px">
-			<video id="video" playsinline class="border " style="margin:auto;display:inline-block;"></video>
-			<canvas id="output" class="canvas-output" style="margin:auto;position:relative;top:-480px;left:10px"></canvas>
-			<!-- <div class="float-right">
-	    		<a href="https://www.youtube.com/user/chirpieful">
-	    			<img src="../static/img/yicong.jpg" class="rounded" style="height:30px;width:30px;position:relative;top:-30px;">
-	    		</a>
-	    	</div> -->
-		</div> 
-    </div>
+	
 </body>
 
 <style>
-	.myimg{
-		background-color:cyan;
-		margin: 30px;
-		border: 3px solid red;
-		border-radius: 20px;
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.body{
+		width: 100vw;
+		height: 75%;
+	}
+	img{
+		height: 7vh;
+	}
+	.body .myimg{
+		background-image: linear-gradient(to right, rgb(170 17 17 / 0%), rgb(216 106 54))
+		/* background-color:rgba(55, 230, 249, 0.695); */
+		/* height: 50%; */
+	}
+	video{
+		margin-left: 12%;
+	}
+	h1{
+		margin-left: 12px;
+		margin-top: 12px;
+		color: rgb(207 9 9);
 	}
 </style>
 <script>

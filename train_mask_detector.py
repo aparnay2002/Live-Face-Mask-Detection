@@ -34,7 +34,7 @@ plot_path=os.getcwd()+"//plot"
 # initialize the initial learning rate, number of epochs to train for,
 # and batch size
 INIT_LR = 1e-4
-EPOCHS = 1
+EPOCHS = 3
 BS = 32
 
 # grab the list of images in our dataset directory, then initialize
